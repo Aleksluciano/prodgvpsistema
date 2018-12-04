@@ -506,7 +506,7 @@ var MaskPhones = /** @class */ (function () {
         var pattern = /[0-9\+\-\ ]/;
         var inputChar = String.fromCharCode(event.charCode);
         if (event.keyCode == 0 || event.keyCode == 229) {
-            event.keyCode = this.getKeyCode(event.value);
+            event.keyCode = this.getKeyCode(event.charCode);
             console.log(event.keyCode);
         }
         if ((event.keyCode != 8 && !pattern.test(inputChar)) ||
