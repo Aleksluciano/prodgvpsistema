@@ -21,12 +21,14 @@ const app = express();
 //Connect database
 mongoose.set('useCreateIndex', true) //DeprecationWarning ensureIndex eliminated
 
+// use encodeURIComponent because the password has special characters
 mongoose
-  .connect(`mongodb://${process.env.USER_DATABASE}:${process.env.PASS_DATABASE}@ds137267.mlab.com:37267/gvpdatabase`,{ useNewUrlParser: true })
+  .connect(`mongodb://${process.env.USER_DATABASE}:${encodeURIComponent(process.env.PASS_DATABASE)}@ds137267.mlab.com:37267/gvpdatabase`,{ useNewUrlParser: true })
   .then(() => {
     console.log("Connected to database!");
   })
-  .catch(() => {
+  .catch((e) => {
+    console.log(e);
     console.log("Connection failed!");
   });
 
