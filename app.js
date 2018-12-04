@@ -20,7 +20,7 @@ const app = express();
 
 //Connect database
 mongoose.set('useCreateIndex', true) //DeprecationWarning ensureIndex eliminated
-
+console.log(process.env.DB);
 mongoose
   .connect(process.env.DB,{ useNewUrlParser: true })
   .then(() => {
