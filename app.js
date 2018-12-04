@@ -20,9 +20,9 @@ const app = express();
 
 //Connect database
 mongoose.set('useCreateIndex', true) //DeprecationWarning ensureIndex eliminated
-console.log(process.env.DB);
+
 mongoose
-  .connect(process.env.DB,{ useNewUrlParser: true })
+  .connect(`mongodb://${process.env.USER_DATABASE}:${process.env.PASS_DATABASE}@ds137267.mlab.com:37267/gvpdatabase`,{ useNewUrlParser: true })
   .then(() => {
     console.log("Connected to database!");
   })
